@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FFSLJ" Class="testDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=FFSLJ;Persist Security Info=True;User ID=sa" SettingsObjectName="LinqToSqlTest.Properties.Settings" SettingsPropertyName="FFSLJConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BCS_District" Member="BCS_District">
+    <Type Name="BCS_District">
+      <Column Name="Dis_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DepartmentCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="DistrictName" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="MeterReadingRouteID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[_MASK_SYNC_V2]" Member="_MASK_SYNC_V2" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="MeterReader" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="CreateDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ReviseDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Operator" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="Creator" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="OldCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AllowOnlinePay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CollCollector" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BCS_MeterReadingRoute" Member="BCS_MeterReadingRoute">
+    <Type Name="BCS_MeterReadingRoute">
+      <Column Name="MRR_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DepartmentCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RouteName" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="RouteCode" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ReviseDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Creator" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="Operator" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="ReadingDate" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AllowDownloadStart" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AllowDownloadEnd" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BCS_Charge" Member="BCS_Charge">
+    <Type Name="BCS_Charge">
+      <Column Name="Charge_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InvoiceCode" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PriceMonth_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BM_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="GetMoneyTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DepartmentCode" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="CM_ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UsedWaterNumber" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="GetMoney" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="BankOfDeposit" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="GetMoneyPersonId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="GetMoneyPersonName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="state" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="PlanMoney" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="LastBalance" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="ThisBalance" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="InvoiceOver" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BookOver" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="OldInvoiceCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PosYn" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="PosMoney" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="CardType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AdvanceYn" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="MoneyType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BalanceDt" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="AdvanceReturn" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ReviseDT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Creator" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Operator" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Old定价" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Old年月" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Old客户" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Old水表" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Old支付方式" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="OldUser" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="otherOrderCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="test">
+  <DataContextMoniker Name="/testDataContext" />
+  <nestedChildShapes>
+    <classShape Id="7f7b37ce-c277-4265-be8d-c6bc57a38b88" absoluteBounds="0.625, 0.5, 2, 3.3852461751302081">
+      <DataClassMoniker Name="/testDataContext/BCS_District" />
+      <nestedChildShapes>
+        <elementListCompartment Id="29776609-74b4-4ada-ab99-a9171a7686c0" absoluteBounds="0.63999999999999968, 0.96, 1.9700000000000002, 2.825246175130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="89cdc5a5-e993-4145-a358-85810aa4f846" absoluteBounds="3.375, 0.5, 2, 3.0156579589843751">
+      <DataClassMoniker Name="/testDataContext/BCS_MeterReadingRoute" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0facefd3-138b-41ad-b2f7-3c16c418837d" absoluteBounds="3.3899999999999997, 0.96, 1.9700000000000002, 2.455657958984375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5d9eb6eb-849e-49b9-98e7-58218f11700a" absoluteBounds="6.125, 0.5, 2, 7.63551066080729">
+      <DataClassMoniker Name="/testDataContext/BCS_Charge" />
+      <nestedChildShapes>
+        <elementListCompartment Id="de81e226-45fe-4bdd-b62f-175ddf457478" absoluteBounds="6.14, 0.96, 1.9700000000000002, 7.0755106608072911" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
