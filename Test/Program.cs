@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
@@ -14,111 +16,207 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            //string a = "abcd";
-            //Console.WriteLine(a.PadLeft(10,'0'));
-            //Console.ReadKey();
-            //测试四舍五入
-            //float a =(float) Math.Round(0.555,0);
-            //Console.WriteLine(a); 
-            //Console.ReadKey();
-            //string a = DateTime.Now.ToString("yyyyMMdd");
-            //string b = string.Format("{0:yyyy-MM-dd}",null);
-            //Console.WriteLine();
-            //Console.ReadLine();
-            //string a = "b+大|小";
-            //a = a.Substring(a.LastIndexOf("+")+1);
-            //Console.WriteLine(a);
 
-            //Console.WriteLine();
-            //decimal c = Convert.ToDecimal("3.256") + Convert.ToDecimal("-"+"3.269");
-            //string d = Convert.ToDateTime("2018-05-03").ToString("yyyy-MM-dd HH:mm:ss");
-            // DataTable dt = new DataTable();
-            // dt.Columns.Add("标识",typeof(System.String));
-            // dt.Columns.Add("用量",typeof(System.String));
-            // DataColumn column = new DataColumn("求和",typeof(System.Int32));
-            // dt.Columns.Add(column);
-            // dt.Rows.Add(new object[]{1,10});
-            // dt.Rows.Add(new object[]{2,11});
-            // column.Expression = "Convert(用量,'System.Int32')";
-            //// object total = dt.Compute("Sum(Convert(Child.用量,'System.Int32'))","");
-            // object total = dt.Compute("Sum(用量)","");
-            //  object num = dt.Rows[0]["求和"];
-            //16进制转换
-            //int a = 30;
-            //Console.WriteLine(a.ToString("X0"));
-            //正则表达式
-            //    string regex = "((?:(?:[1]{1}\\d{1}\\d{1}\\d{1})|(?:[2]{1}\\d{3}))[-:\\/.](?:[0]?[1-9]|[1][012])[-:\\/.](?:(?:[0-2]?\\d{1})|(?:[3][01]{1})))(?![\\d])";
-            //string a = "2013//02//01";
-            //string txt = "2019-08-11  15:03";
+            //String base_url = "http://8.142.68.93:8844/api/v1/token";
+            //String xTimestamp =Convert.ToInt64((DateTime.Now - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalMilliseconds).ToString();
 
-            //string re1 = "((?:(?:[1]{1}\\d{1}\\d{1}\\d{1})|(?:[2]{1}\\d{3}))[-:\\/.](?:[0]?[1-9]|[1][012])[-:\\/.](?:(?:[0-2]?\\d{1})|(?:[3][01]{1})))(?![\\d])";	// YYYYMMDD 1
-            //string re2 = "(\\s+)";	// White Space 1
-            //string re3 = "((?:(?:[0-1][0-9])|(?:[2][0-3])|(?:[0-9])):(?:[0-5][0-9])(?::[0-5][0-9])?(?:\\s?(?:am|AM|pm|PM))?)";	// HourMinuteSec 1
-            // Console.WriteLine(Regex.IsMatch(txt, re1 + re2 + re3));
-            //16进制转换2进制
-            // 00
-            // int x = 0x01;
-            // string a = Convert.ToString(x, 2).PadLeft(8,'0').Substring(6,2);
-            //// byte a = Convert.ToByte("0x01", 16);
-            // Console.WriteLine(a);
-            //测试Linq中的select
-            //List<int> list = new List<int>();
-            //list.Add(1);
-            //list.Add(2);
-            //list.Add(3);
-            //list.Add(4);
-            //list.Add(5);
+            ////openApi客户端id
+            //String xClientId = "6SFrjy858X6WQFKj"; 
+            ////密钥
+            //String secureKey = "hpThMbPf84DTbDMDyHb6ktw7";
+            //String body = "{\"expires\":7200}"; 
+            //MD5CryptoServiceProvider md5Hasher = new MD5CryptoServiceProvider();
+            ////byte[] data = Encoding.UTF8.GetBytes(body);
+            ////byte[] data1 = Encoding.UTF8.GetBytes(xTimestamp); 
+            ////byte[] data2 = Encoding.UTF8.GetBytes(secureKey);
+            ////byte[] buffer = new byte[data.Length+data1.Length+data2.Length];
+            ////Array.Copy(data, 0,buffer,0,data.Length);
+            ////Array.Copy(data1,0, buffer,data.Length, data1.Length);
+            ////Array.Copy(data2, 0, buffer, data.Length+data1.Length, data2.Length);
+            //byte[] buffer = Encoding.UTF8.GetBytes(body+ xTimestamp+ secureKey);
 
-            //var result = from x in list
-            //             select new Student()
-            //             {
-            //                 Name=x.ToString(),
-            //                 sex=x.ToString()
-
-            //             };
-            //foreach (var item in result)
+            //byte[] secret = md5Hasher.ComputeHash(buffer);
+            //StringBuilder sBuilder = new StringBuilder();
+            //for (int i = 0; i < secret.Length; i++)
             //{
-            //    Console.WriteLine(item.Name+item.sex);
+            //    sBuilder.Append(secret[i].ToString("x2"));
             //}
-            //  Console.WriteLine(result);
-            //
-            //var json = "{\"data\":[{\"a\":3,\"b\":4,\"c\":5},{\"a\":1,\"b\":10,\"c\":11},{\"a\":2,\"b\":8,\"c\":12}]}";
-            //JObject obj = JObject.Parse(json);
-            //var query = from str in obj["data"].Children() orderby str["a"] ascending select str ;
-            //foreach (var item in query)
-            //{
-            // //   Console.WriteLine(item);
-            //}
-            //Console.WriteLine(JsonConvert.SerializeObject(query));
-            //Console.ReadKey();
-            /*  TestDictionary dic = new TestDictionary();
-              dic.addSpace();
-              Console.ReadKey();*/
-            DataTable dt = new DataTable();
-            dt.Columns.Add("id", typeof(System.Int32));
-            dt.Columns.Add("name", typeof(System.String));
-            dt.Rows.Add(new object[] { 1, "lubert" });
-            dt.Rows.Add(new object[] { 2, "xiaoming" });
-            //  string json = ToJson(dt);
-            //   Console.WriteLine(json);
-            // DataTable   dt1 = JsonConvert.DeserializeObject<DataTable>(json);
-            //    Console.WriteLine(dt1.GetType());
-            //    Console.ReadKey();
-            //}
-            //public static string ToJson(object obj) {
-            //    if (obj==null)
-            //    {
-            //        return null;
-            //    }
-            //    var timeConverter = new IsoDateTimeConverter{ DateTimeFormat = "yyyy-MM-dd HH:mm:ss" };
-            //    return JsonConvert.SerializeObject(obj,timeConverter);
-            //}
-            new TestProcess().ProcessOpe();
+            //WebHeaderCollection webHeader = new WebHeaderCollection();
+            //webHeader.Add("X-Sign",sBuilder.ToString());
+            //webHeader.Add("X-Client-Id", xClientId);
+            //webHeader.Add("X-Timestamp", xTimestamp);
+            //String result = WebsHelper.HttpWebRequestPlat(base_url,body,Encoding.GetEncoding("utf-8"),webHeader, "POST", "application/json");
+            //Console.WriteLine(result);
+            //  Test1();
+            //   BytesToFloat();
+            //  ObjectToStrings();
+            string hexString = "524946460488010057415645666d7420100000000100010088130000102700000200100064617461E0870100";
+
+            byte[] aaa= ToBytesFromHexString(hexString);
+            //  GetRegex();
+            //合并table
+          //  mergeTable();
 
         }
-    }
-    class Student { 
+        public static void Test1() {
+            String a = "aaa";
+            for (int i = 0; i < 100; i++)
+            {
+                switch (a)
+                {
+                    case "aaa":
+                        continue;
+                    default:
+                        int cc = 35;
+                        break;
+
+
+                }
+                int zzz = 25;
+            }
+
+        }
+        public static byte[] GetAddrFromStr(string address)
+        {
+            Int32 length = Convert.ToInt32(Math.Ceiling((decimal)address.Length / 2));
+            byte[] addr = new byte[length];
+            byte[] buffer = new byte[7];
+            for (int i = 0; i < length; i++)
+            {
+                addr[i] = Convert.ToByte(address.Substring(i * 2, 2), 16);
+            }
+            addr.CopyTo(buffer, 7 - addr.Length);
+            return buffer;
+        }
+        private static byte[] GetAddrFromStr1(string address)
+        {
+            byte[] addr = new byte[7];
+            for (int i = 0; i < address.Length / 2; i++)
+            {
+                addr[i] = Convert.ToByte(address.Substring(i * 2, 2), 16);
+            }
+            return addr;
+        }
+        public static DataTable GetTable()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("name");
+            dt.Columns.Add("type");
+            dt.Columns.Add("age");
+            dt.Rows.Add(new object[] { "xiaoming", "1", "15" });
+            dt.Rows.Add(new object[] { "xiaoming", "1", "9" });
+            dt.Rows.Add(new object[] { "xiaohong", "2", "11" });
+            dt.Rows.Add(new object[] { "xiaohong", "2", "12" });
+            dt.Rows.Add(new object[] { "linyang", "3", "10" });
+            return dt;
+        }
+        /// <summary>
+        /// 字节数组转为float
+        /// </summary>
+        public static void BytesToFloat() {
+            //  byte[] aaa = new byte[] { 1, 23, 25, 26 }; 
+            //有无
+            String str = "C1533333";
+            byte[] bbb = new byte[str.Length / 2];
+            for (int i = 0; i < str.Length; i += 2)
+            {
+                bbb[i / 2] = Convert.ToByte(str.Substring(i, 2), 16);
+            }
+            int cc = 0;
+            for (int i = 0; i < bbb.Length; i++)
+            {
+                cc = (cc << 8) + bbb[i];
+            }
+            // Int32 cc= BitConverter.ToInt32(bbb,0);
+            Console.WriteLine(cc);
+            uint num = uint.Parse(str, System.Globalization.NumberStyles.AllowHexSpecifier);
+            Console.WriteLine(num);
+            
+            byte[] floatVals = BitConverter.GetBytes(num);
+            float f = BitConverter.ToSingle(floatVals, 0);
+            Console.WriteLine(f);
+            float a = 10f;
+            byte[] dd = BitConverter.GetBytes(a);
+            // float f = BitConverter.ToSingle(aaa,0);
+            f = BitConverter.ToSingle(dd, 0);
+            Console.WriteLine(f);
+            Console.ReadKey();
+
+        }
+        /// <summary>
+        /// object To string[]
+        /// </summary>
+        public static void ObjectToStrings(){
+            var obj = new { a = "333", b = "444" };
+            Console.WriteLine(obj.ToString());
+          
+            string[] strArr = Array.ConvertAll(obj.GetType().GetProperties(), p => (string)p.GetValue(obj,null));
+            string[] propArr = Array.ConvertAll(obj.GetType().GetProperties(), p => (string)p.Name);
+            Console.ReadKey();
+
+
+        }
+        public static byte[] ToBytesFromHexString(String hexString)
+        {
+           
+
+            byte[] returnBytes = new byte[hexString.Length / 2];
+            for (int i = 0; i < hexString.Length / 2; i++)
+            {
+                returnBytes[i] = Convert.ToByte(hexString.Substring(i * 2, 2), 16);
+            }
+            string str = BitConverter.ToString(returnBytes);
+            return returnBytes;
+        }
+        public static string GetRegex() {
+
+            string input = "abc123def456";
+            string result = Regex.Replace(input, "[^0-9]", "");
+            string letters = Regex.Replace(input, "[a-zA-Z]+","");
+            return result + "," + letters;
+
+        }
+
+        public static void mergeTable() {
+            // 创建两个DataTable  
+            DataTable table1 = new DataTable();
+            table1.Columns.Add("ID", typeof(int));
+            table1.Columns.Add("Name", typeof(string));
+            table1.Rows.Add(1, "John");
+            table1.Rows.Add(2, "Mary");
+
+            DataTable table2 = new DataTable();
+            table2.Columns.Add("ID", typeof(int));
+            table2.Columns.Add("Name", typeof(string));
+            table2.Rows.Add(3, "Peter");
+            table2.Rows.Add(4, "Linda");
+
+            // 创建一个DataSet并添加这两个DataTable  
+            DataSet dataSet = new DataSet();
+            dataSet.Tables.Add(table1);
+            dataSet.Tables.Add(table2);
+
+            // 使用Merge方法合并两个DataTable，并保留新数据和已存在的数据（默认行为）  
+            dataSet.Merge(table2);
+
+            // 打印合并后的DataTable  
+            foreach (DataTable table in dataSet.Tables)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    Console.WriteLine(row["ID"] + ": " + row["Name"]);
+                }
+            }
+        }
+
+
+}
+
+
+    
+    class Student
+    {
         public string Name { get; set; }
-        public string sex { get; set;}
+        public string sex { get; set; }
     }
 }

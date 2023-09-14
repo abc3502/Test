@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookieUtil", "CookieUtil\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToDataSet", "LinqToDataSet\LinqToDataSet.csproj", "{A70C4AD6-2C34-4A8D-A489-83AE46FC3F0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartzJob", "QuartzJob\QuartzJob.csproj", "{BEF71B20-5B0B-4095-B1B9-EAF27539FF05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRabbitmq", "TestRabbitmq\TestRabbitmq.csproj", "{8FF2239E-13C4-4AA4-B593-C8A30DB444E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{A70C4AD6-2C34-4A8D-A489-83AE46FC3F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A70C4AD6-2C34-4A8D-A489-83AE46FC3F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A70C4AD6-2C34-4A8D-A489-83AE46FC3F0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEF71B20-5B0B-4095-B1B9-EAF27539FF05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEF71B20-5B0B-4095-B1B9-EAF27539FF05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEF71B20-5B0B-4095-B1B9-EAF27539FF05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEF71B20-5B0B-4095-B1B9-EAF27539FF05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FF2239E-13C4-4AA4-B593-C8A30DB444E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FF2239E-13C4-4AA4-B593-C8A30DB444E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FF2239E-13C4-4AA4-B593-C8A30DB444E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FF2239E-13C4-4AA4-B593-C8A30DB444E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -115,7 +115,7 @@ public static class TestClass
 	{
 		string str = "中国";
 		int aa = 25;
-		DisplaySettings setting = new DisplaySettings { Style = 3, Size = 50 };
+        DisplaySeeting setting = new DisplaySeeting { Style = 3, Size = 50 };
 		DateTime dt = new DateTime(2012, 1, 1, 12, 0, 0);
 
 		str.WriteCookie("Key1", DateTime.Now.AddDays(1d));
@@ -130,7 +130,7 @@ public static class TestClass
 
 		string str = request.Cookies["Key1"].GetString();
 		int num = request.Cookies["Key2"].ToInt(0);
-		DisplaySettings setting = request.Cookies["Key3"].FromJson<DisplaySettings>();
+        DisplaySeeting setting = request.Cookies["Key3"].FromJson<DisplaySeeting>();
 		DateTime dt = request.Cookies["Key4"].ConverTo<DateTime>();
 	}	
 }
@@ -149,9 +149,9 @@ public static class CookieValues
 	{
 		get { return HttpContext.Current.Request.Cookies["Key2"].ToInt(0); }
 	}
-	public static DisplaySettings CCC
+	public static DisplaySeeting CCC
 	{
-		get { return HttpContext.Current.Request.Cookies["Key3"].FromJson<DisplaySettings>(); }
+		get { return HttpContext.Current.Request.Cookies["Key3"].FromJson<DisplaySeeting>(); }
 	}
 	public static DateTime DDD
 	{
